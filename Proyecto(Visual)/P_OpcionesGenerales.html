@@ -1,0 +1,351 @@
+<html>
+
+<head>
+    <title>
+        NLP - PhishBuster
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .sidebar h1 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #666;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar ul li.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-inner {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .content section {
+            margin-bottom: 20px;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+        }
+
+        .content section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .content section .section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px auto 0;
+            width: 60%;
+        }
+
+        .content section label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            justify-content: flex-start;
+        }
+
+        .content section input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .content section select {
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 120px;
+            text-align: center;
+        }
+
+        .content section select:focus {
+            border-color: #007bff;
+            background-color: #e9f5ff;
+            outline: none;
+        }
+
+        .content section .icon {
+            margin-left: 10px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .content section .icon:hover {
+            color: #007bff;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .sidebar {
+            background-color: #444;
+        }
+
+        .dark-mode .sidebar ul li {
+            color: #ccc;
+        }
+
+        .dark-mode .sidebar ul li.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .dark-mode .content {
+            background-color: #555;
+        }
+
+        .dark-mode .content section select {
+            background-color: #666;
+            color: #fff;
+        }
+
+        .dark-mode .content section select:focus {
+            background-color: #555;
+        }
+
+        .dark-mode .content section .icon {
+            color: #ccc;
+        }
+
+        .dark-mode .content section .icon:hover {
+            color: #fff;
+        }
+    </style>
+    <script>
+        function toggleSections() {
+            var mode = document.getElementById("mode").value;
+            var advancedSections = document.querySelectorAll(".advanced");
+            if (mode === "Básico") {
+                advancedSections.forEach(function (section) {
+                    section.style.display = "none";
+                });
+            } else {
+                advancedSections.forEach(function (section) {
+                    section.style.display = "block";
+                });
+            }
+        }
+
+        function toggleTheme() {
+            var theme = document.getElementById("theme").value;
+            var body = document.body;
+            if (theme === "Oscuro") {
+                body.classList.add("dark-mode");
+            } else {
+                body.classList.remove("dark-mode");
+            }
+        }
+
+        function handleIconClick(action) {
+            alert("Action: " + action);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img alt="NLP - PhishBuster Logo" height="213" src="./Imagenes/Logo.png" width="220"
+                style="display: block; margin: 0 auto;" />
+            <h1 style="text-align: center;">
+                NLP - PhishBuster
+            </h1>
+            <ul>
+                <li class="active">
+                    <i class="fas fa-cog">
+                    </i>
+                    General
+                </li>
+                <li>
+                    <i class="fas fa-signal">
+                    </i>
+                    Estadísticas
+                </li>
+                <li>
+                    <i class="fas fa-star">
+                    </i>
+                    Calificar y Comentar
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-inner">
+                <h2>
+                    Opciones Generales
+                </h2>
+                <section>
+                    <h3>
+                        Personalización de la Interfaz
+                    </h3>
+                    <div class="section-content">
+                        <label>
+                            Modo:
+                            <select id="mode" onchange="toggleSections()" style="width: 120px;">
+                                <option>
+                                    Básico
+                                </option>
+                                <option>
+                                    Avanzado
+                                </option>
+                            </select>
+                        </label>
+                        <label>
+                            Tema:
+                            <select id="theme" onchange="toggleTheme()" style="width: 120px;">
+                                <option>
+                                    Claro
+                                </option>
+                                <option>
+                                    Oscuro
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <h3>
+                        Alertas y Acciones Automáticas
+                    </h3>
+                    <div class="section-content">
+                        <label>
+                            <input checked="" type="checkbox" />
+                            Bloqueo Automático de Remitentes
+                        </label>
+                        <label>
+                            <input type="checkbox" />
+                            Resaltar Correos Sospechosos
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <h3>
+                        Gestión de Correos Sospechosos
+                    </h3>
+                    <div class="section-content">
+                        <label>
+                            Sugerencias de Manejo
+                            <i class="fas fa-file-alt icon" onclick="handleIconClick('Sugerencias de Manejo')">
+                            </i>
+                        </label>
+                        <label>
+                            Reportar Correo no Detectado
+                            <i class="fas fa-exclamation-circle icon"
+                                onclick="handleIconClick('Reportar Correo no Detectado')">
+                            </i>
+                        </label>
+                    </div>
+                </section>
+                <section class="advanced">
+                    <h3>
+                        Historial de Correos Analizados
+                    </h3>
+                    <div class="section-content">
+                        <label>
+                            Ver Historial de Análisis
+                            <i class="fas fa-search icon" onclick="handleIconClick('Ver Historial de Análisis')">
+                            </i>
+                        </label>
+                        <label>
+                            Exportar Historial de Correos Detectados
+                            <i class="fas fa-file-export icon"
+                                onclick="handleIconClick('Exportar Historial de Correos Detectados')">
+                            </i>
+                        </label>
+                    </div>
+                </section>
+                <section class="advanced">
+                    <h3>
+                        Análisis de Enlaces en Correos
+                    </h3>
+                    <div class="section-content">
+                        <label>
+                            <input checked="" type="checkbox" />
+                            Verificación automática de enlaces
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        toggleSections();
+    </script>
+</body>
+
+</html>
