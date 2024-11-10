@@ -778,7 +778,7 @@ def predecir_url3(url):
     resultado = 'Peligrosa' if prediccion[0] >= 0.80 else 'Benigna'
     return resultado, probabilidad
 
-# Solicitar la URL
+# Solicitar la URL 2
 """
 url = "https://www.google.com/"
 resultado, probabilidad = predecir_url2(url)
