@@ -767,5 +767,5 @@ print(f"La URL es {resultado} con una probabilidad de peligro de {probabilidad[0
 #url = "www.dghjdgf.com/paypal.co.uk/cycgi-bin/webscrcmd=_home-customer&nav=1/loading.php"
 #resultado, probabilidad = predecir_url3(url)
 #print(f"La URL es {resultado} con una probabilidad de peligro de {probabilidad[0]:.2f} y {url}")
-#joblib.dump(xgb_c, 'xgb_model.pkl')
-#print("Modelo XGBoost guardado como 'xgb_model.pkl'")
+joblib.dump(xgb_c, 'xgb_model.pkl')
+print("Modelo XGBoost guardado como 'xgb_model.pkl'")
