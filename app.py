@@ -3,8 +3,7 @@ import joblib
 
 app = Flask(__name__)
 
-# Cargar el modelo entrenado una sola vez, que incluye el preprocesamiento
-modelo = joblib.load('xgb_model.pkl')
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -14,6 +13,7 @@ def predict():
         return jsonify({"error": "No URL provided"}), 400
 
     # Realizar la predicción usando el modelo que incluye preprocesamiento
+    modelo = joblib.load('xgb_model.pkl')
     resultado, probabilidad = modelo.predecir_url3(url)  # Asegúrate de que 'predecir_url3' sea accesible desde el modelo cargado
     
     return jsonify({
