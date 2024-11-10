@@ -500,14 +500,6 @@ y_pred_proba = rf.predict_proba(X_test)[:, 1]
 # Matriz de confusión
 conf_matrix = confusion_matrix(y_test, y_pred)
 
-# Mostrar la matriz de confusión
-plt.figure(figsize=(6,4))
-sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
-plt.title('Matriz de Confusión')
-plt.xlabel('Predicho')
-plt.ylabel('Real')
-plt.show()
-
 accuracy = accuracy_score(y_test, y_pred)
 precision = precision_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
@@ -536,14 +528,6 @@ y_pred_lgb = LGB_C.predict(X_test)
 # Matriz de confusión
 conf_matrix = confusion_matrix(y_test, y_pred_lgb)
 
-# Mostrar la matriz de confusión
-plt.figure(figsize=(6,4))
-sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
-plt.title('Matriz de Confusión')
-plt.xlabel('Predicho')
-plt.ylabel('Real')
-plt.show()
-
 accuracy = accuracy_score(y_test, y_pred_lgb)
 precision = precision_score(y_test, y_pred_lgb)
 recall = recall_score(y_test, y_pred_lgb)
@@ -570,14 +554,6 @@ y_pred_x = xgb_c.predict(X_test)
 y_pred_proba = xgb_c.predict_proba(X_test)[:, 1]
 # Matriz de confusión
 conf_matrix = confusion_matrix(y_test, y_pred_x)
-
-# Mostrar la matriz de confusión
-plt.figure(figsize=(6,4))
-sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
-plt.title('Matriz de Confusión')
-plt.xlabel('Predicho')
-plt.ylabel('Real')
-plt.show()
 
 accuracy = accuracy_score(y_test, y_pred_x)
 precision = precision_score(y_test, y_pred_x)
@@ -778,7 +754,7 @@ def predecir_url3(url):
     resultado = 'Peligrosa' if prediccion[0] >= 0.80 else 'Benigna'
     return resultado, probabilidad
 
-# Solicitar la URL 2
+# Solicitar la URL 3
 """
 url = "https://www.google.com/"
 resultado, probabilidad = predecir_url2(url)
@@ -788,8 +764,8 @@ url = "news.bbc.co.uk/1/hi/technology/7445956.stm"
 resultado, probabilidad = predecir_url2(url)
 print(f"La URL es {resultado} con una probabilidad de peligro de {probabilidad[0]:.2f} y {url}")
 """
-url = "www.dghjdgf.com/paypal.co.uk/cycgi-bin/webscrcmd=_home-customer&nav=1/loading.php"
-resultado, probabilidad = predecir_url2(url)
-print(f"La URL es {resultado} con una probabilidad de peligro de {probabilidad[0]:.2f} y {url}")
-joblib.dump(xgb_c, 'xgb_model.pkl')
-print("Modelo XGBoost guardado como 'xgb_model.pkl'")
+#url = "www.dghjdgf.com/paypal.co.uk/cycgi-bin/webscrcmd=_home-customer&nav=1/loading.php"
+#resultado, probabilidad = predecir_url3(url)
+#print(f"La URL es {resultado} con una probabilidad de peligro de {probabilidad[0]:.2f} y {url}")
+#joblib.dump(xgb_c, 'xgb_model.pkl')
+#print("Modelo XGBoost guardado como 'xgb_model.pkl'")
